@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  TCAssistantBack.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -24,30 +20,36 @@
  *
  */
 
-#import <Foundation/Foundation.h>
-
-
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
-/*
-** Defines
-*/
-#pragma mark - Defines
-
-#define TCProxyName @"com.sourcemac.torchat.proxy"
-
+#import "TCAssistantBack.h"
 
 
 /*
-** TCConfigProxy
+** TCAssistantBack
 */
-#pragma mark - TCConfigProxy
+#pragma mark - TCAssistantBack
 
-@protocol TCConfigProxy <NSObject>
+@implementation TCAssistantBack
 
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
+
+/*
+** TCAssistantBack - Draw
+*/
+#pragma mark - TCAssistantBack - Draw
+
+- (void)drawRect:(NSRect)dirtyRect
+{	
+    NSRect			r = NSMakeRect(0, 0, self.frame.size.width, self.frame.size.height);
+	NSBezierPath	*frm = [NSBezierPath bezierPathWithRect:r];
+	
+	// Set the back color
+	[[NSColor colorWithCalibratedWhite:1.0 alpha:0.555555555555555f] set];
+	[frm fill];
+	
+	// Set the rect color
+	CGFloat gray = 0.13f;
+	
+	[[NSColor colorWithCalibratedRed:gray green:gray blue:gray alpha:1.0] set];
+	[frm stroke];
+}
 
 @end

@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  TCFilesWindowController.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -24,30 +20,25 @@
  *
  */
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
-/*
-** Defines
-*/
-#pragma mark - Defines
-
-#define TCProxyName @"com.sourcemac.torchat.proxy"
-
+#import "TCFilesCommon.h"
 
 
 /*
-** TCConfigProxy
+** TCFilesWindowController
 */
-#pragma mark - TCConfigProxy
+#pragma mark - TCFilesWindowController
 
-@protocol TCConfigProxy <NSObject>
+// == Class ==
+@interface TCFilesWindowController : NSWindowController
 
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
+// -- Constructor --
++ (TCFilesWindowController *)sharedController;
+
+// -- Actions --
+- (void)startFileTransfert:(NSString *)uuid withFilePath:(NSString *)filePath buddyAddress:(NSString *)address buddyName:(NSString *)name transfertWay:(tcfile_way)way fileSize:(uint64_t)size;
+- (void)setStatus:(tcfile_status)status andTextStatus:(NSString *)txtStatus forFileTransfert:(NSString *)uuid withWay:(tcfile_way)way;
+- (void)setCompleted:(uint64_t)size forFileTransfert:(NSString *)uuid withWay:(tcfile_way)way;
 
 @end

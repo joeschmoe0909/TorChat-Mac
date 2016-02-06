@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  TCButton.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -24,30 +20,42 @@
  *
  */
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
 /*
-** Defines
+** Forward
 */
-#pragma mark - Defines
+#pragma mark - Forward
 
-#define TCProxyName @"com.sourcemac.torchat.proxy"
+@class TCButton;
 
 
 
 /*
-** TCConfigProxy
+** TCButton Delegate
 */
-#pragma mark - TCConfigProxy
+#pragma mark - TCButton Delegate
 
-@protocol TCConfigProxy <NSObject>
+@protocol TCButtonDelegate <NSObject>
 
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
+@optional
+	- (void)button:(TCButton *)button isRollOver:(BOOL)rollOver;
+@end
+
+
+
+/*
+** TCButton
+*/
+#pragma mark - TCButton
+
+@interface TCButton : NSButton
+
+@property (weak, atomic) id <TCButtonDelegate> delegate;
+
+- (void)setImage:(NSImage *)img;
+- (void)setPushImage:(NSImage *)img;
+- (void)setRollOverImage:(NSImage *)img;
 
 @end

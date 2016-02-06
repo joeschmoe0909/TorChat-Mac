@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  TCUpdateWindowController.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -24,30 +20,29 @@
  *
  */
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
 /*
-** Defines
+** Forward
 */
-#pragma mark - Defines
+#pragma mark - Forward
 
-#define TCProxyName @"com.sourcemac.torchat.proxy"
+@class TCTorManager;
 
 
 
 /*
-** TCConfigProxy
+** TCUpdateWindowController
 */
-#pragma mark - TCConfigProxy
+#pragma mark - TCUpdateWindowController
 
-@protocol TCConfigProxy <NSObject>
+@interface TCUpdateWindowController : NSWindowController
 
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
+// -- Singleton --
++ (TCUpdateWindowController *)sharedController;
+
+// -- Tools --
+- (void)handleUpdateFromVersion:(NSString *)oldVersion toVersion:(NSString *)newVersion torManager:(TCTorManager *)torManager;
 
 @end

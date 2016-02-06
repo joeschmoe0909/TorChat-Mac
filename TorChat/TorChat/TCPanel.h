@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  TCPanel.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -27,27 +23,35 @@
 #import <Foundation/Foundation.h>
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
 /*
-** Defines
+** TCAssistantProxy
 */
-#pragma mark - Defines
+#pragma mark - TCAssistantProxy
 
-#define TCProxyName @"com.sourcemac.torchat.proxy"
+@protocol TCAssistantProxy <NSObject>
 
+- (void)setNextPanelID:(NSString *)panelID;
+- (void)setIsLastPanel:(BOOL)last;
+- (void)setDisableContinue:(BOOL)disabled;
+
+@end
 
 
 /*
-** TCConfigProxy
+** TCAssistantPanel
 */
-#pragma mark - TCConfigProxy
+#pragma mark - TCAssistantPanel
 
-@protocol TCConfigProxy <NSObject>
+@protocol TCAssistantPanel <NSObject>
 
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
++ (id <TCAssistantPanel>)panelWithProxy:(id <TCAssistantProxy>)proxy;
+
++ (NSString *)identifiant;
++ (NSString *)title;
+
+- (NSView *)view;
+- (id)content;
+
+- (void)showPanel;
 
 @end

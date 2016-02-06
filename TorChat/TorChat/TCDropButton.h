@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  TCDropButton.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -27,27 +23,35 @@
 #import <Foundation/Foundation.h>
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
 /*
-** Defines
+** Forward
 */
-#pragma mark - Defines
+#pragma mark - Forward
 
-#define TCProxyName @"com.sourcemac.torchat.proxy"
+@class TCDropButton;
 
 
 
 /*
-** TCConfigProxy
+** TCDropButtonDelegate
 */
-#pragma mark - TCConfigProxy
+#pragma mark - TCDropButtonDelegate
 
-@protocol TCConfigProxy <NSObject>
+@protocol TCDropButtonDelegate <NSObject>
 
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
+- (void)dropButton:(TCDropButton *)button doppedImage:(NSImage *)image;
+
+@end
+
+
+
+/*
+** TCDropButton
+*/
+#pragma mark - TCDropButton
+
+@interface TCDropButton : NSButton
+
+@property (weak, atomic) id <TCDropButtonDelegate> delegate;
 
 @end

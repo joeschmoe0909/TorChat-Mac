@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  TCBuffer.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -27,27 +23,27 @@
 #import <Foundation/Foundation.h>
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
 /*
-** Defines
+** TCBuffer
 */
-#pragma mark - Defines
+#pragma mark - TCBuffer
 
-#define TCProxyName @"com.sourcemac.torchat.proxy"
+@interface TCBuffer : NSObject
 
+// -- Bytes --
+- (void)pushBytes:(const void *)bytes ofSize:(NSUInteger)size copy:(BOOL)copy; 	// Insert at the beggin
+- (void)appendBytes:(const void *)bytes ofSize:(NSUInteger)size copy:(BOOL)copy;	// Insert at the end
 
+- (NSUInteger)readBytes:(void *)bytes ofSize:(NSUInteger)size; // Read data from beggin
 
-/*
-** TCConfigProxy
-*/
-#pragma mark - TCConfigProxy
+// -- Tools --
+- (NSData *)dataUpToCStr:(const char *)search includeSearch:(BOOL)includeSearch; // Read data up to the string "search"
 
-@protocol TCConfigProxy <NSObject>
+- (void)clean;
+- (void)print;
 
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
+// -- Properties --
+- (NSUInteger)size;
 
 @end
+

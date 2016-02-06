@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  NSArray+TCTools.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -27,27 +23,13 @@
 #import <Foundation/Foundation.h>
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
 /*
-** Defines
+** NSArray (TCTools)
 */
-#pragma mark - Defines
+#pragma mark - NSArray (TCTools)
 
-#define TCProxyName @"com.sourcemac.torchat.proxy"
+@interface NSArray (TCTools)
 
-
-
-/*
-** TCConfigProxy
-*/
-#pragma mark - TCConfigProxy
-
-@protocol TCConfigProxy <NSObject>
-
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
+- (NSData *)joinWithCStr:(const char *)str;
 
 @end

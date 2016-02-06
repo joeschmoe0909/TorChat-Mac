@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  TCChatTranscriptViewController.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -27,27 +23,22 @@
 #import <Foundation/Foundation.h>
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
 /*
-** Defines
+** TCChatTranscriptViewController
 */
-#pragma mark - Defines
+#pragma mark - TCChatTranscriptViewController
 
-#define TCProxyName @"com.sourcemac.torchat.proxy"
+@interface TCChatTranscriptViewController : NSViewController
 
+- (void)appendLocalMessage:(NSString *)message;
+- (void)appendRemoteMessage:(NSString *)message;
 
+- (void)appendError:(NSString *)error;
+- (void)appendStatus:(NSString *)status;
 
-/*
-** TCConfigProxy
-*/
-#pragma mark - TCConfigProxy
+- (void)setLocalAvatar:(NSImage *)image;
+- (void)setRemoteAvatar:(NSImage *)image;
 
-@protocol TCConfigProxy <NSObject>
-
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
+- (NSUInteger)messagesCount;
 
 @end

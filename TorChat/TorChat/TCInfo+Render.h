@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  TCInfo+Render.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -26,28 +22,18 @@
 
 #import <Foundation/Foundation.h>
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
-/*
-** Defines
-*/
-#pragma mark - Defines
-
-#define TCProxyName @"com.sourcemac.torchat.proxy"
-
+#import "TCInfo.h"
 
 
 /*
-** TCConfigProxy
+** TCInfoRender
 */
-#pragma mark - TCConfigProxy
+#pragma mark - TCInfoRender
 
-@protocol TCConfigProxy <NSObject>
+@interface TCInfo (TCInfoRender)
 
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
+- (NSString *)renderComplete;
+
+- (NSString *)renderMessage;
 
 @end

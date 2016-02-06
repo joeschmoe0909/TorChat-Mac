@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  NSString+TCXMLExtension.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -27,27 +23,13 @@
 #import <Foundation/Foundation.h>
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
 /*
-** Defines
+** NSString - TCXMLExtension
 */
-#pragma mark - Defines
+#pragma mark - NSString - TCXMLExtension
 
-#define TCProxyName @"com.sourcemac.torchat.proxy"
+@interface NSString (TCXMLExtension)
 
-
-
-/*
-** TCConfigProxy
-*/
-#pragma mark - TCConfigProxy
-
-@protocol TCConfigProxy <NSObject>
-
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
+- (NSString *)stringByEscapingXMLEntities;
 
 @end

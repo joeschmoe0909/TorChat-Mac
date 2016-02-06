@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  TCBuddyInfoWindowsController.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -24,30 +20,34 @@
  *
  */
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
-/*
-** Defines
-*/
-#pragma mark - Defines
-
-#define TCProxyName @"com.sourcemac.torchat.proxy"
-
+#import "TCConfigInterface.h"
 
 
 /*
-** TCConfigProxy
+** Forward
 */
-#pragma mark - TCConfigProxy
+#pragma mark - Forward
 
-@protocol TCConfigProxy <NSObject>
+@class TCBuddy;
+@class TCDragImageView;
+@class TCCoreManager;
 
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
+
+
+/*
+** TCBuddyInfoController
+*/
+#pragma mark - TCBuddyInfoController
+
+@interface TCBuddyInfoWindowsController : NSObject
+
+// -- Instance --
+- (instancetype)initWithCoreManager:(TCCoreManager *)coreManager;
+
+// -- Tools --
+- (void)showInfoForBuddy:(TCBuddy *)buddy;
+- (void)closeInfoForBuddy:(TCBuddy *)buddy;
 
 @end

@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  TCChatCellView.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -24,30 +20,29 @@
  *
  */
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
 /*
 ** Defines
 */
 #pragma mark - Defines
 
-#define TCProxyName @"com.sourcemac.torchat.proxy"
+#define TCChatCellAvatarKey		@"avatar"
+#define TCChatCellNameKey		@"name"
+#define TCChatCellChatTextKey	@"chat_text"
+#define TCChatCellCloseKey		@"close"
 
 
 
 /*
-** TCConfigProxy
+** TCChatCellView
 */
-#pragma mark - TCConfigProxy
+#pragma mark - TCChatCellView
 
-@protocol TCConfigProxy <NSObject>
+@interface TCChatCellView : NSTableCellView
 
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
+// -- Content --
+- (void)setContent:(NSDictionary *)content;
 
 @end

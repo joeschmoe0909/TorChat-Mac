@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  TCPreferencesWindowController.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -24,30 +20,17 @@
  *
  */
 
-#import <Foundation/Foundation.h>
-
-
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
-/*
-** Defines
-*/
-#pragma mark - Defines
-
-#define TCProxyName @"com.sourcemac.torchat.proxy"
-
+#import <Cocoa/Cocoa.h>
 
 
 /*
-** TCConfigProxy
+** TCPreferencesWindowController
 */
-#pragma mark - TCConfigProxy
+#pragma mark - TCPreferencesWindowController
 
-@protocol TCConfigProxy <NSObject>
+@interface TCPreferencesWindowController : NSWindowController
 
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
+// -- Singleton --
++ (TCPreferencesWindowController *)sharedController;
 
 @end

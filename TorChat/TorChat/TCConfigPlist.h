@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  TCConfigPlist.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -24,30 +20,25 @@
  *
  */
 
-#import <Foundation/Foundation.h>
+#import "TCConfigInterface.h"
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
-/*
-** Defines
-*/
-#pragma mark - Defines
-
-#define TCProxyName @"com.sourcemac.torchat.proxy"
-
+#if defined(PROXY_ENABLED) && PROXY_ENABLED
+# import "TCConfigProxy.h"
+#endif
 
 
 /*
-** TCConfigProxy
+** TCConfigPlist
 */
-#pragma mark - TCConfigProxy
+#pragma mark - TCConfigPlist
 
-@protocol TCConfigProxy <NSObject>
+@interface TCConfigPlist : NSObject <TCConfigInterface>
 
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
+// -- Instance --
+- (id)initWithFile:(NSString *)filepath;
+
+#if defined(PROXY_ENABLED) && PROXY_ENABLED
+- (id)initWithFileProxy:(id <TCConfigProxy>)proxy;
+#endif
 
 @end

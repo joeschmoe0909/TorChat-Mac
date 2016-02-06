@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  TCPrefView_Buddies.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -26,28 +22,14 @@
 
 #import <Foundation/Foundation.h>
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
-/*
-** Defines
-*/
-#pragma mark - Defines
-
-#define TCProxyName @"com.sourcemac.torchat.proxy"
-
+#import "TCPrefView.h"
 
 
 /*
-** TCConfigProxy
+** TCPrefView_Buddies
 */
-#pragma mark - TCConfigProxy
+#pragma mark - TCPrefView_Buddies
 
-@protocol TCConfigProxy <NSObject>
-
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
+@interface TCPrefView_Buddies : TCPrefView
 
 @end

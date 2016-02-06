@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  TCConfigInterface.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -24,30 +20,31 @@
  *
  */
 
-#import <Foundation/Foundation.h>
-
-
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
-/*
-** Defines
-*/
-#pragma mark - Defines
-
-#define TCProxyName @"com.sourcemac.torchat.proxy"
-
+#import "TCConfig.h"
 
 
 /*
-** TCConfigProxy
+** Types
 */
-#pragma mark - TCConfigProxy
+#pragma mark - Types
 
-@protocol TCConfigProxy <NSObject>
+typedef enum
+{
+	TCConfigTitleAddress	= 0,
+	TCConfigTitleName		= 1
+} TCConfigTitle;
 
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
+
+
+/*
+** TCConfigInterface
+*/
+#pragma mark - TCConfigInterface
+
+@protocol TCConfigInterface <TCConfig>
+
+// -- Title --
+- (TCConfigTitle)modeTitle;
+- (void)setModeTitle:(TCConfigTitle)mode;
 
 @end

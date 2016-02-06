@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  TCLocationViewController.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -24,30 +20,20 @@
  *
  */
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
-/*
-** Defines
-*/
-#pragma mark - Defines
-
-#define TCProxyName @"com.sourcemac.torchat.proxy"
-
+#import "TCConfig.h"
 
 
 /*
-** TCConfigProxy
+** TCLocationViewController
 */
-#pragma mark - TCConfigProxy
+#pragma mark - TCLocationViewController
 
-@protocol TCConfigProxy <NSObject>
+@interface TCLocationViewController : NSViewController
 
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
+- (instancetype)initWithConfiguration:(id <TCConfig>)configuration component:(TCConfigPathComponent)component;
+
+- (void)addToView:(NSView *)view;
 
 @end

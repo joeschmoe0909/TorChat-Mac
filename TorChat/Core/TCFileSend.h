@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  TCFileSend.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -27,27 +23,31 @@
 #import <Foundation/Foundation.h>
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
 /*
-** Defines
+** TCFileSend
 */
-#pragma mark - Defines
+#pragma mark - TCFileSend
 
-#define TCProxyName @"com.sourcemac.torchat.proxy"
+@interface TCFileSend : NSObject
 
+// -- Properties --
+@property (strong, nonatomic, readonly) NSString	*uuid;
+@property (assign, nonatomic, readonly) uint64_t	fileSize;
+@property (assign, nonatomic, readonly) uint16_t	blockSize;
+@property (strong, nonatomic, readonly) NSString	*fileName;
+@property (strong, nonatomic, readonly) NSString	*filePath;
 
+// -- Instance --
+- (id)initWithFilePath:(NSString *)filePath;
 
-/*
-** TCConfigProxy
-*/
-#pragma mark - TCConfigProxy
+// -- Tools --
+- (NSString *)readChunk:(void *)bytes chunkSize:(uint64_t *)chunkSize fileOffset:(uint64_t *)fileOffset;
+- (void)setNextChunkOffset:(uint64_t)offset;
 
-@protocol TCConfigProxy <NSObject>
+- (BOOL)isFinished;
+- (uint64_t)validatedSize;
+- (uint64_t)readSize;
 
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
+- (void)setValidatedOffset:(uint64_t)offset;
 
 @end

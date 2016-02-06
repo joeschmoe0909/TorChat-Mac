@@ -1,11 +1,7 @@
 /*
- *  TCConfigProxy.h
+ *  TCSignatureHelper.h
  *
-<<<<<<< HEAD
- *  Copyright 2014 Avérous Julien-Pierre
-=======
  *  Copyright 2016 Avérous Julien-Pierre
->>>>>>> javerous/master
  *
  *  This file is part of TorChat.
  *
@@ -27,27 +23,13 @@
 #import <Foundation/Foundation.h>
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> javerous/master
 /*
-** Defines
+** TCSignatureHelper
 */
-#pragma mark - Defines
+#pragma mark - TCSignatureHelper
 
-#define TCProxyName @"com.sourcemac.torchat.proxy"
+@interface TCSignatureHelper : NSObject
 
-
-
-/*
-** TCConfigProxy
-*/
-#pragma mark - TCConfigProxy
-
-@protocol TCConfigProxy <NSObject>
-
-- (NSData *)configContent;
-- (void)setConfigContent:(NSData *)content;
++ (SecKeyRef)copyKeyFromData:(NSData *)data isPrivate:(BOOL)private;
 
 @end
